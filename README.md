@@ -57,3 +57,161 @@ AtlasMind demonstrates how multiple modalities, tools, and models can be orchest
 | **File Input** | Direct CLI file paths | Users provide images or files via `--file_path`, no network fetching |
 | **Config Management** | python-dotenv | Loads API keys and environment variables |
 | **Logging** | colorlog + custom logger utils | Rich, structured logs across tools and pipeline steps |
+
+## Quick Start / Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/atlasmind.git
+cd atlasmind
+```
+
+### 2. Create and Activate a Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate          # macOS / Linux
+# or
+venv\Scripts\activate             # Windows
+```
+
+### 3. Install Python Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+AtlasMind loads its API keys using `python-dotenv`.
+
+Copy the example environment file:
+
+#### macOS / Linux
+```bash
+cp .env.example .env
+```
+
+#### Windows (Command Prompt)
+```cmd
+copy .env.example .env
+```
+
+#### Windows (PowerShell)
+```powershell
+Copy-Item .env.example .env
+```
+
+Fill in the required keys:
+
+```env
+GEMINI_API_KEY=
+GITHUB_TOKEN=
+SERPAPI_API_KEY=
+DEEPGRAM_API_KEY=
+```
+
+## Quick Start / Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/atlasmind.git
+cd atlasmind
+```
+
+### 2. Create and Activate a Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate          # macOS / Linux
+# or
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install AtlasMind in Editable Mode
+```bash
+pip install -e .
+```
+
+### 4. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Configure Environment Variables
+Copy example file:
+
+macOS / Linux:
+```bash
+cp .env.example .env
+```
+
+Windows CMD:
+```cmd
+copy .env.example .env
+```
+
+Windows PowerShell:
+```powershell
+Copy-Item .env.example .env
+```
+
+Fill in:
+```env
+GEMINI_API_KEY=
+GITHUB_TOKEN=
+SERPAPI_API_KEY=
+DEEPGRAM_API_KEY=
+```
+
+---
+
+## Usage
+
+AtlasMind's CLI supports only the following arguments:
+
+- --question
+- --file_path
+
+### Text-only question
+```bash
+atlasmind --question "Explain how rainbows form"
+```
+
+### Image + question
+```bash
+atlasmind --question "How many pieces are on the board?" \
+          --file_path tmp/samples/chess_position.png
+```
+
+### Audio transcription + reasoning
+```bash
+atlasmind --question "Transcribe this audio" \
+          --file_path tmp/samples/speech.mp3
+```
+
+### Code execution (via file)
+```bash
+atlasmind --question "Run this code" \
+          --file_path tmp/samples/code.py
+```
+
+---
+
+## Features
+- Multimodal reasoning  
+- Structured JSON output  
+- LlamaIndex workflow orchestration  
+- Planning + synthesis separation  
+- Robust error handling  
+- Extensible tool system  
+
+---
+
+## Testing
+```bash
+pytest
+```
+
+Validates:
+- Tool reliability  
+- Planning and classification  
+- Audio/video transcription  
+- Code execution  
+- Output model validation  

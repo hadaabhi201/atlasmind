@@ -1,0 +1,45 @@
+[project]
+name = "atlasmind"
+version = "0.1.0"
+description = "A modular reasoning agent using LlamaIndex (no RAG)"
+authors = [{ name="Abhishek Hada" }]
+requires-python = ">=3.10"
+dependencies = [
+    "llama-index",
+    "openai",
+    "pandas",
+    "pydantic",
+    "requests",
+    "beautifulsoup4",
+    "colorama",
+    "deepgram-sdk",
+    "google-search-results",
+    "gradio",
+    "openpyxl",
+    "Pillow",
+    "protobuf",
+    "python-dotenv",
+    "tiktoken",
+    "youtube-transcript-api"
+]
+
+[project.scripts]
+atlasmind = "atlasmind.main:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["atlasmind"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = """
+    --cov=atlasmind
+    --cov-report=term-missing
+    --cov-report=html
+    -v
+    --disable-warnings
+"""
