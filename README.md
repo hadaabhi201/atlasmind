@@ -86,7 +86,7 @@ Copy the example environment file:
 
 #### macOS / Linux
 ```bash
-cp .env.example .env
+cp example.env .env
 ```
 
 #### Windows (Command Prompt)
@@ -176,20 +176,20 @@ atlasmind --question "Explain how rainbows form"
 
 ### Image + question
 ```bash
-atlasmind --question "How many pieces are on the board?" \
-          --file_path tmp/samples/chess_position.png
+atlasmind --question "Review the chess position provided in the image. It is black's turn. Provide the correct next move for black which guarantees a win. Please provide your response in algebraic notation." \
+          --file_path ./tmp/sample/chess_position.png
 ```
 
 ### Audio transcription + reasoning
 ```bash
-atlasmind --question "Transcribe this audio" \
-          --file_path tmp/samples/speech.mp3
+atlasmind --question "Hi, I was out sick from my classes on Friday, so I'm trying to figure out what I need to study for my Calculus mid-term next week. My friend from class sent me an audio recording of Professor Willowbrook giving out the recommended reading for the test, but my headphones are broken :(\n\nCould you please listen to the recording for me and tell me the page numbers I'm supposed to go over? I've attached a file called Homework.mp3 that has the recording. Please provide just the page numbers as a comma-delimited list. And please provide the list in ascending order." \
+          --file_path ./tmp/sample/homework.mp3
 ```
 
 ### Code execution (via file)
 ```bash
 atlasmind --question "Run this code" \
-          --file_path tmp/samples/code.py
+          --file_path tmp/sample/code.py
 ```
 
 ---

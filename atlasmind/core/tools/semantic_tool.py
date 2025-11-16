@@ -24,7 +24,7 @@ class SemanticTool(BaseTool):
 
             # --- Step 2: Run model ---
             response = self.llm.generate_content(prompt)
-            answer = response.text.strip() if hasattr(response, "text") else str(response)
+            answer = response.text
 
             # --- Step 3: Return result ---
             return ToolResult(

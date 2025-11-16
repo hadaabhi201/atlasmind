@@ -21,7 +21,6 @@ class VisualReasoningClassifier(BaseClassifier):
     def classify(self, question: str, file_path: str | None = None) -> ReasoningCategory | None:
         text = question.strip()
 
-        self.logger.warning(f"VisualReasoning file path:{file_path}")
         if self.patterns["exclude"].search(text):
             self.logger.debug("Skipped VisualReasoning due to exclusion pattern.")
             return None

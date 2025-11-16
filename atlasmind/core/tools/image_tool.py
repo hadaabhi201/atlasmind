@@ -23,9 +23,9 @@ class ImageTool(BaseTool):
 
         if not image_path or not os.path.exists(image_path):
             msg = (
-                "[CodeExecutorTool] Invalid file_path. "
+                "[ImageTool] Invalid file_path. "
                 f"Provided: {image_path}. "
-                "A valid file must be supplied for code execution."
+                "A valid file must be supplied for image."
             )
             self.logger.error(f"{msg} Question: {question}")
             raise RuntimeError(msg)
@@ -42,7 +42,7 @@ class ImageTool(BaseTool):
             self.logger.info(f"[ImageTool] Executing Gemini vision reasoning for question {question}")
 
             response = self.gemini_model.generate_content([prompt, image])
-            output_text = response.text.strip() if hasattr(response, "text") else str(response)
+            output_text = response.text
 
             return ToolResult(
                 question=question,
