@@ -9,7 +9,6 @@ from atlasmind.core.tools.base_tool import BaseTool, ExecutionStatus, ToolResult
 class AudioTool(BaseTool):
     """Tool for audio transcription using Deepgram API."""
     def __init__(self):
-        # self.dg_client = DeepgramClient(api_key="e6304ccbd0c75181fe1ee3baa75bc6541fd35407")
         self.dg_client = DeepgramClient(api_key=settings.DEEPGRAM_API_KEY)
         self.logger = get_logger(__name__)
     
